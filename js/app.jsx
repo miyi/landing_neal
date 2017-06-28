@@ -8,9 +8,6 @@ class SampleApp extends React.Component {
   render() {
     return (
       <App
-        googleAnalyticsKey="UA-42490151-3"
-        segmentKey="Pd3LXILLoxlOKXi9zWTCyhK2MRvygFhF"
-        stripeKey="pk_BkaOyHcEiCFaUiEADe7UH6Wq7D6f7"
         history={ browserHistory }>
         { this.props.children }
       </App>

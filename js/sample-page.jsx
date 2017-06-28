@@ -18,7 +18,7 @@ import {
   TeamMember,
 } from "neal-react";
 
-const brandName = "SamplePage";
+const brandName = "MyCoffee Vancouver";
 const brand = <span>{brandName}</span>;
 
 const onSignup = ({ name: name, email: email, password: password }) => Stripe.StripeHandler.open({
@@ -39,8 +39,8 @@ const businessAddress = (
 );
 
 const pricingPlan1 = {
-  name: "Personal",
-  description: "Describe your plans with easy-to-use pricing tables. Each plan provides callbacks to handle visitor clicks.",
+  name: "weekly",
+  description: "Customers can select products and pay via third-party vendors like stripe.",
   price: "$99",
   features: {
     "Describe pricing plans as JSON": true,
@@ -55,7 +55,7 @@ const pricingPlan1 = {
 
 const pricingPlan2 = Object.assign({}, pricingPlan1, {
   price: "$499",
-  name: "Startup",
+  name: "Monthly",
   features: Object.assign({}, pricingPlan1.features, {
     "Extra Feature 1": true,
   }),
@@ -63,33 +63,11 @@ const pricingPlan2 = Object.assign({}, pricingPlan1, {
 
 const pricingPlan3 = Object.assign({}, pricingPlan2, {
   price: "$999",
-  name: "Enterprise",
+  name: "Annual",
   features: Object.assign({}, pricingPlan2.features, {
     "Extra Feature 2": true,
   }),
 });
-
-const sampleCode = `<Page>
-  <Hero><h1>{ /* Content */ }</h1></Hero>
-  <Section heading="Hello!">
-    <HorizontalSplit padding="md"> { /* Content */ } </HorizontalSplit>
-  </Section>
-  <Section>
-    <Team>
-      <TeamMember name="Link" title="Co-founder" imageUrl="img/link.jpg"> { /* Description */ } </TeamMember>
-      <TeamMember name="Yoshi" title="Co-founder" imageUrl="img/yoshi.jpg"> { /* Description */ } </TeamMember>
-    </Team>
-  </Section>
-  <Section>
-    <PricingTable>
-      <PricingPlan {... pricingPlan1} />
-      <PricingPlan {... pricingPlan2} />
-      <PricingPlan {... pricingPlan3} />
-    </PricingTable>
-    <SignupInline onSubmit={onSignupCallback}/>
-  </Section>
-</Page>
-`;
 
 
 export default (props) => {
@@ -97,28 +75,27 @@ export default (props) => {
     <Page>
 
       <Navbar brand={brand}>
-        <NavItem><Link to="Home" className="nav-link">Home</Link></NavItem>
+        <NavItem><Link to="Home" className="nav-link">About</Link></NavItem>
         <NavItem dropdown={true}>
-          <DropdownToggle>Github</DropdownToggle>
+          <DropdownToggle>Products</DropdownToggle>
           <DropdownMenu>
-            <a href="https://github.com/dennybritz/neal-react" className="dropdown-item" target="_blank">
-              Neal React
+            <a href="https://www.Intelligentsia.com" className="dropdown-item" target="_blank">
+              Intelligentsia 
             </a>
-            <a href="https://github.com/dennybritz/neal-sample" className="dropdown-item" target="_blank">
-              Sample Page
+            <a href="https://www.starbucks.com" className="dropdown-item" target="_blank">
+              Starbucks
             </a>
           </DropdownMenu>
         </NavItem>
       </Navbar>
 
-      <Hero backgroundImage="img/hero-bg-01.jpg"
+      <Hero backgroundImage="img/machine.jpeg"
         className="text-xs-center">
-        <h1 className="display-4"> Declarative Landing Pages for React.js </h1>
-        <p className="lead">Build a beautiful landing page in less than an hour.
-          No more redundant code. Easily extensible.</p>
+        <h1 className="display-4">Grown with Care</h1>
+        <p className="lead">Boutique coffee sourced globally, served in vancouver</p>
         <p>
-          <a href="https://github.com/dennybritz/neal-react" target="_blank" className="btn btn-white">
-            Get it on Github
+          <a href="https://www.Intelligentsia.com" target="_blank" className="btn btn-white">
+            Get it Now
           </a>
         </p>
       </Hero>
@@ -130,10 +107,6 @@ export default (props) => {
           <ImageListItem src="img/press/theverge-logo.png" url="http://www.theverge.com/"/>
           <ImageListItem src="img/press/techcrunch-logo.jpg" url="http://techcrunch.com/"/>
         </ImageList>
-      </Section>
-
-      <Section className="nopad-bottom">
-        <Code lang="jsx" block>{sampleCode}</Code>
       </Section>
 
       <Section>
@@ -159,7 +132,7 @@ export default (props) => {
       </Section>
 
       <Section heading="Inline and Modal Signup components" className="gray">
-        <p>Use these components to capture user data, display a payment dialog and/or send them to your own backend for handling. Of course, you could also just use a Typeform to collect user emails. </p>
+        <p>Modal Signup if we want it, can send emails or something but i don't think its too important</p>
         <SignupInline onSubmit={onSignup}/>
         <SignupModal modalId="signup-modal" onSubmit={onSignup}/>
         <p>
@@ -205,8 +178,8 @@ export default (props) => {
 
       <Footer brandName={brandName}
         facebookUrl="http://www.facebook.com"
-        twitterUrl="http://www.twitter.com/dennybritz"
-        githubUrl="https://github.com/dennybritz/neal-react"
+        twitterUrl="http://www.twitter.com"
+        githubUrl="https://github.com"
         address={businessAddress}>
       </Footer>
     </Page>
